@@ -1,0 +1,203 @@
+
+<div data-ng-controller="detailsController">
+	<div class="container">
+		<form name="myForm" id="loginForm" class="pure-form login-form" data-ng-submit=submit()>
+	
+		<div class="row">
+				<div class="col-lg-7">  
+					<h3><span style="color:blue">Select Required Service</span></h3>
+					
+					<table class="table table-bordeblack">
+						<thead>
+							<tr class="active">
+					    		<th>Si.No</th>
+					    		<th>Name of the verification Certificate</th>             
+					    		<th>Amount in Rupees</th>
+					        	<th>Select appropriate service sought</th>
+					  		</tr>
+						</thead>
+						<tbody>
+							<tr class="success">
+								<td>1</td>
+							    <td>Police Verification Certificate for Job Purpose</td>         
+							    <td>300</td>
+							    <td><input type="checkbox" ng-model="service" ng-true-value="1" ng-required="!service" /></td>
+							</tr>
+							
+						    <tr class="danger">
+						    	<td>2</td>
+						    	<td>Police Verification Certificate for Marriage Alliances</td>        
+						    	<td>500</td>
+								<td><input type="checkbox"  ng-model="service" ng-true-value="2" ng-required="!service" /></td>
+						  	</tr>
+						  	
+				  			<tr class="info">
+							    <td>3</td>
+							    <td>Police Verification Certificate for NCC Students</td>        
+							    <td>50</td>
+								<td><input type="checkbox"  ng-model="service" ng-true-value="3" ng-required="!service" /></td>
+				  			</tr>
+				  			
+							<tr class="active">
+				    			<td>4</td>
+				    			<td>Police Verification Certificate for Address Verification</td>             
+				    			<td>500</td>
+								<td><input type="checkbox"  ng-model="service" ng-true-value="4" ng-required="!service" /></td>
+				  			</tr>
+				  			
+						<tr class="warning">
+						    <td>5</td>
+						    <td>Police Verification Certificate for Passport</td>            
+						    <td>800</td>
+							<td><input type="checkbox"  ng-model="service" ng-true-value="5" ng-required="!service" /></td>
+				  		</tr>
+				</tbody>
+			</table>
+			
+			</div>
+		</div>
+	
+
+	
+				<h3><span style="color:blue">Please Enter Your Details</span></h3>
+					
+  						 <div class="row">
+  							 <div class="col-lg-7">
+   								 <label for="Name"><span style="color:black">Name</span></label>
+    							 <input type="text" class="form-control" name="user_fullname" data-ng-model="fullName" ng-pattern="/^[a-zA-Z\s]*$/"  id="Name"  placeholder="Name" required> 
+    							 <span ng-show="myForm.user_fullname.$error.pattern"><span style="color:red">Invalid....type only alphabets</span></span>
+  							</div>
+  						 </div>
+   						 <br>
+   						
+  		  				<div class="row">
+ 		 					 <div class="col-lg-7">
+     		 					<label for="Father/Husband Name"><span style="color:black">Father/Husband Name</span></label>
+     		 					<input type="text"  name="user_fathername" class="form-control" id="F/HName" data-ng-model="fatherName" ng-pattern="/^[a-zA-Z_.-\s]*$/" placeholder="Father/Husband Name" required>
+     		 					 <span ng-show="myForm.user_fathername.$error.pattern"><span style="color:red">Invalid....type only alphabets</span></span>
+     	  					</div>
+  		  				</div>
+   						<br>
+   						
+  		 				<div class="row">
+  							 <div class="col-lg-7">
+    		  					<label for="Gender"><span style="color:black">Gender</span></label><br>
+    							<label>
+    							<input type="radio"  name="Male" id="sel1"  data-ng-model="gender" value="Male" ng-required="!gender"/>Male</label>
+    							<label> &nbsp;&nbsp;&nbsp;&nbsp;
+    							<input type="radio"  name="Female" id="sel1"  data-ng-model="gender" value="Female" ng-required="!gender" />Female</label>
+   			  					
+      						 </div>
+    					</div>
+    					<br>
+   
+  		 				<div class="row">
+  							 <div class="col-lg-7">
+   		   						<label for="Nationality"><span style="color:black">Nationality</span></label>
+								  							 
+								<input type="text" class="form-control" ng-model="nationality" data-items="5" typeahead="country for country in countries | filter:$viewValue" />
+						</div>
+   		 				</div>
+   		 				<br>
+
+   					 <div class="row">
+  						 <div class="col-lg-7">
+      						<label for="Date"><span style="color:black">DOB</span></label>
+     						 <input type="date"  class="form-control" id="pickdate" data-ng-model="dateofbirth" data-date-options="dateOptions" data-custom-datepicker  placeholder="Date Of Birth" required/>
+  						</div>
+  					</div>
+  					<br>
+  	
+   						 <div class="row">
+   							<div class="col-lg-7">
+     						 	<label for="Contact No"><span style="color:black">Contact Number</span></label>
+     						 	<input type="text" class="form-control" name="number" ng-model="number" ng-maxlength="10" ng-minlength="10" ng-pattern="/^\d{10}$/" required/>
+    							<span ng-show="myForm.number.$error.pattern"><span style="color:red">Invalid..Enter 10 digit number</span></span>
+     						
+   							</div>
+   						</div>
+   						<br> 
+
+  						<div class="row">
+   							<div class="col-lg-7">
+    	  						<label for="Adress"><span style="color:black">Address</span></label>
+     	 					    <input type="text" class="form-control" name="user_address" id="Addrs" data-ng-model="address" placeholder="Address" required>
+    						</div>
+    					</div>
+    					<br>
+    					<br>
+			
+			<!-- FOR FILE UPLOADING -->
+						<div class="row">
+						<div class="col-sm-4">
+       						<input type="file" data-ng-file-select data-ng-model="item.file" id="document"  data-uploader="uploader" multiple name="file" accept="application/pdf" class="form-control ng-pristine ng-valid"/>
+    						<span style="color:black" ><span style="font-size:10px">Maximum file size: 10 MB</span></span>
+						</div>
+						&nbsp;&nbsp;
+
+						<button class="btn btn-success"   data-ng-click="addItem(item.file)" type="button"> Upload </button> <br> <br> <br>
+						</div>
+     				  	<div class="row">
+							<div class="col-lg-7">
+								<div ng-if="showTable">
+								<table class="table">
+      								 <thead>
+             			 				<tr><span style="color:black">File name</span></tr>
+        							</thead>      
+              					 <tbody>
+             				 <tr data-ng-repeat="itemObj in items">             
+                    			 <td><span style="color:black">{{itemObj.file[0].name}}</span></td>
+                    			 <td>
+                        		
+									
+									<input type="button" class="btn btn-danger" data-ng-click="removeItem(itemObj)" id="remove" value='Remove'>	
+								</td>
+             				 </tr>
+      							 </tbody>
+								</table>   
+								</div>
+							</div> 
+      					 </div>   
+              			 <button type="submit" ng-disabled="myForm.$error.pattern"   class="btn btn-success" ><span style="color:#FFFFFF">Register</span></button>         
+					</form><br>
+		</div>
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  >
+      	<div class="modal-dialog" role="document">
+     		 <div class="modal-content">
+             	<div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      						 <form id="loginForm" class="pure-form login-form" >
+       						 	<h2><span style="color:blue">Details Entered by You</span></h2>
+ 								<dl class="dl-horizontal">
+ 									 <dt>Full Name:</dt>
+  										<dd>{{viewuser.fullName}} </dd>
+  									<dt>Father/Husband Name:</dt>
+  										<dd>{{viewuser.fatherName}} </dd>
+  									<dt>Gender 	:</dt>
+  										<dd>{{viewuser.gender}} </dd>
+  									<dt>Nationality:</dt>
+  										<dd>{{viewuser.nationality}} </dd>
+  									<dt>Contact No:</dt>
+  										<dd>{{viewuser.contactNumber}} </dd>
+  									<dt>Address:</dt>
+  										<dd>{{viewuser.address}} </dd>
+ 								</dl>
+
+       						<h5 class="modal-title" id="myModalLabel">Registration Successful</h5>
+                            <h4><span style="color:#0000FF">That's it!!!. Please wait for 2 days to process your request</span></h4>
+                            </form>
+                 		</div>
+                     	
+                        <br>
+                        <button type="button" id="close" class="btn btn-default" data-ng-click="Logout()" data-dismiss="modal"><span style="color:#006600">Close</span></button> 
+                         
+               </div>
+            </div>
+            
+       </div>
+      
+</div>  
+                
+
+
