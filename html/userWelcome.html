@@ -1,0 +1,65 @@
+<style>
+p.ex {
+    margin-top: 01px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 100px;
+    
+}
+
+.container-fluid { 
+  padding-left: 50px;
+  padding-right: 10px;
+}
+
+
+</style>
+<div class="container-fluid">
+			<span style="color:blue">WELCOME</span> &nbsp;	<span style="color:red"> <B> {{res.fullName |  uppercase}} </B> </span><br>
+			<span style="color:blue">STATUS </span> &nbsp;&nbsp; &nbsp;&nbsp; 	<span style="color:red">	<B>{{res.status.status |  uppercase}} </B></span>
+			<br>	<button type="button" id="close" class="btn btn-default" data-ng-click="Logout()" ><span style="color:#006600">Log-out</span></button> 
+			<br><br>
+			
+			
+			
+	<!-- <div ui-layout-container size="33%"  > -->
+		<!-- <div class="row"> -->
+			<div class="col-lg-5">
+				
+					<h3><p1><span style="color:black">DETAILS ENTERED BY YOU</span></p1></h3><br>
+					
+					
+					
+				 <form id="loginForm" class="pure-form login-form" >
+				 <dl class="dl-horizontal">
+				 		<dt>Full Name:</dt>
+				 			<dd><B>	{{res.fullName		 |  uppercase}} </B></dd> 
+				 		<dt>FATHER'S NAME :</dt>
+				 			<dd><B>	{{res.fatherName 	 |  uppercase}} </B></dd>
+				 		<dt>GENDER 	:</dt>
+				 			<dd><B>	{{res.gender		 |  uppercase}} </B></dd>
+				 		<dt>NATIONALITY	:</dt>
+				 			<dd><B>	{{res.nationality	 |  uppercase}}</B></dd>
+				 		<dt>CONTACT NO	:</dt>
+				 			<dd><B>	{{res.contactNumber  |  uppercase}} </B></dd>
+				 		<dt>ADDRESS		:</dt>
+				 			<dd><B>	{{res.address 		 |  uppercase}} </B></dd>
+				 	</dl>
+  
+		</form>
+			
+		</div> 
+		
+		<div ui-layout-container size="33%"  >
+  		<div align="right"  style="vertical-align: top">  <iframe src="{{doc}}" width="50%" height="500"></iframe></div>
+  	</div>
+		<br>			
+					 <button type="button" id="close" class="btn btn-success" data-ng-click="Logout()" ><span style="color:#006600">Log-out</span></button> 
+		
+	
+</div>	
+		 
+
+	 
+	 
+
